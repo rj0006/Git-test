@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Data Extraction</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+</head>
+<body>
+    <table id="table1">
+        <tr>
+            <td><input type="text" value="Item 1"></td>
+            <td>Details 1</td>
+        </tr>
+        <tr>
+            <td><input type="text" value="Item 2"></td>
+            <td>Details 2</td>
+        </tr>
+        <tr>
+            <td><input type="text" value="Item 3"></td>
+            <td>Details 3</td>
+        </tr>
+    </table>
+
+    <table id="table2">
+        <tr>
+            <td>Another Column</td>
+            <td><input type="text" id="dropdownContainer"></td>
+        </tr>
+    </table>
+
+    <script>
+        $(document).ready(function() {
+            function updateAutocomplete() {
+                let columnData = [];
+                $('#table1 tr').each(function() {
+                    let firstColumnInputValue = $(this).find('td:first input').val();
+                    columnData.push(firstColumnInputValue);
+                });
+
+                $('#dropdownContainer').autocomplete({
+                    source: columnData
+                });
+            }
+
+            updateAutocomplete(); // Initial population of autocomplete
+
+            // Listen for changes in the first table inputs
+            $('#table1').on('input', 'input', function() {
+                updateAutocomplete();
+            });
+        });
+    </script>
+</body>
+</html>
