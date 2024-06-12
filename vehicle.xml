@@ -1,97 +1,98 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<VehicleDetails>
-  <stautsMessage>OK</stautsMessage>
-  <rc_regn_no>CG07BC9186</rc_regn_no>
-  <rc_regn_dt>01-Sep-2016</rc_regn_dt>
-  <rc_regn_upto>23-Nov-2025</rc_regn_upto>
-  <rc_purchase_dt>31-Aug-2016</rc_purchase_dt>
-  <rc_owner_sr>1</rc_owner_sr>
-  <rc_owner_name>M*H*M*A* *O*N</rc_owner_name>
-  <rc_f_name>M*H*M*A* *S*A*L</rc_f_name>
-  <state_cd>CG</state_cd>
-  <rto_cd>7</rto_cd>
-  <rc_present_address>H*N*-*/*,*J*A*-*,*S*D*K*5*,*W*R* *O*3* *H*R*I*A*,*D*R*,*D*r*-*9*0*3</rc_present_address>
-  <rc_permanent_address>H*N*-*/*,*J*A*-*,*S*D*K*5*,*W*R* *O*3* *H*R*I*A*,*D*R*,*D*r*-*9*0*3</rc_permanent_address>
-  <rc_mobile_no>9*3*4*0*0*</rc_mobile_no>
-  <rc_vch_catg>HGV</rc_vch_catg>
-  <rc_vh_class_desc>Articulated Vehicle(HGV)</rc_vh_class_desc>
-  <rc_chasi_no>MAT503017GAH08909</rc_chasi_no>
-  <rc_eng_no>61H63538630</rc_eng_no>
-  <rc_maker_desc>TATA MOTORS LTD</rc_maker_desc>
-  <rc_maker_model>LPS 3518/32</rc_maker_model>
-  <rc_body_type_desc>TRL OB TRAILER (OPEN BODY</rc_body_type_desc>
-  <rc_fuel_desc>DIESEL</rc_fuel_desc>
-  <rc_color>WHITE</rc_color>
-  <rc_norms_desc>BHARAT STAGE IV</rc_norms_desc>
-  <rc_fit_upto>23-Nov-2025</rc_fit_upto>
-  <rc_np_upto>24-Nov-2024</rc_np_upto>
-  <rc_np_issued_by>RTO Durg</rc_np_issued_by>
-  <rc_tax_upto>31-05-2024</rc_tax_upto>
-  <rc_financer>CHOLAMANDALAM INVESTMENT AND FINANC</rc_financer>
-  <rc_insurance_comp>National Insurance Co. Ltd.</rc_insurance_comp>
-  <rc_insurance_policy_no>29520531246360000654</rc_insurance_policy_no>
-  <rc_insurance_upto>21-May-2025</rc_insurance_upto>
-  <rc_manu_month_yr>8/2016</rc_manu_month_yr>
-  <rc_unld_wt>12000</rc_unld_wt>
-  <rc_gvw>39500</rc_gvw>
-  <rc_no_cyl>6</rc_no_cyl>
-  <rc_cubic_cap>5883.00</rc_cubic_cap>
-  <rc_seat_cap>2</rc_seat_cap>
-  <rc_sleeper_cap>0</rc_sleeper_cap>
-  <rc_stand_cap>0</rc_stand_cap>
-  <rc_wheelbase>3200</rc_wheelbase>
-  <rc_registered_at>DURG RTO, Chhattisgarh</rc_registered_at>
-  <rc_status_as_on>08-Jun-2024</rc_status_as_on>
-  <rc_pucc_upto>19-Nov-2024</rc_pucc_upto>
-  <rc_pucc_no>MH03500270008213</rc_pucc_no>
-  <rc_status>ACTIVE</rc_status>
-  <rc_ncrb_status></rc_ncrb_status>
-  <rc_blacklist_status></rc_blacklist_status>
-  <rc_permit_no>CG2021-NP-7376A</rc_permit_no>
-  <rc_permit_issue_dt>27-Nov-2021</rc_permit_issue_dt>
-  <rc_permit_valid_from>27-Nov-2021</rc_permit_valid_from>
-  <rc_permit_valid_upto>26-Nov-2026</rc_permit_valid_upto>
-  <rc_permit_type>National Permit [MULTI AXLE GOODS VCH(&lt;=50tons)]</rc_permit_type>
-  <rc_permit_code>106</rc_permit_code>
-  <rc_noc_details></rc_noc_details>
-  <rc_vh_class>0</rc_vh_class>
-  <rc_fuel_cd>0</rc_fuel_cd>
-  <rc_maker_cd>0</rc_maker_cd>
-  <rc_norms_cd>0</rc_norms_cd>
-  <rc_sale_amt>0.0</rc_sale_amt>
-  <rc_deemed_owner_details>
-    <auc_valid_upto></auc_valid_upto>
-    <authorization_certificate_number></authorization_certificate_number>
-    <dealer_code></dealer_code>
-    <dealer_mail></dealer_mail>
-    <dealer_mobile></dealer_mobile>
-    <dealer_name></dealer_name>
-  </rc_deemed_owner_details>
-  <rc_vehicle_surrendered_to_dealer>0</rc_vehicle_surrendered_to_dealer>
-  <rc_dealer>
-    <dealer_contact_no>0</dealer_contact_no>
-    <dealer_district>0</dealer_district>
-    <dealer_pincode>0</dealer_pincode>
-  </rc_dealer>
-  <rc_currentadd_statename>Chhattisgarh</rc_currentadd_statename>
-  <rc_currentadd_districtcode>409</rc_currentadd_districtcode>
-  <rc_currentadd_pincode>490003</rc_currentadd_pincode>
-  <rc_non_use>false</rc_non_use>
-  <rc_passenger_tax></rc_passenger_tax>
-  <rc_goods_tax></rc_goods_tax>
-  <temp_permit>
-    <rc_permit_code></rc_permit_code>
-    <rc_permit_issue_dt></rc_permit_issue_dt>
-    <rc_permit_no></rc_permit_no>
-    <rc_permit_type></rc_permit_type>
-    <rc_permit_valid_from></rc_permit_valid_from>
-    <rc_permit_valid_upto></rc_permit_valid_upto>
-  </temp_permit>
-  <rc_qr_url></rc_qr_url>
-  <rc_auth_name></rc_auth_name>
-  <rc_auth_sign></rc_auth_sign>
-  <rc_approval_date></rc_approval_date>
-  <rc_hp></rc_hp>
-  <rc_mandal_desc></rc_mandal_desc>
-  <rc_taluk_cd></rc_taluk_cd>
-</VehicleDetails>
+{"response":[{"response":"
+<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n
+<VehicleDetails>\n  
+    <stautsMessage>OK</stautsMessage>\n
+    <rc_regn_no>CG07BC9186</rc_regn_no>\n
+    <rc_regn_dt>01-Sep-2016</rc_regn_dt>\n
+    <rc_regn_upto>23-Nov-2025</rc_regn_upto>\n
+    <rc_purchase_dt>31-Aug-2016</rc_purchase_dt>\n
+    <rc_owner_sr>1</rc_owner_sr>\n
+    <rc_owner_name>M*H*M*A* *O*N</rc_owner_name>\n
+    <rc_f_name>M*H*M*A* *S*A*L</rc_f_name>\n
+    <state_cd>CG</state_cd>\n
+    <rto_cd>7</rto_cd>\n
+    <rc_present_address>H*N*-*/*,*J*A*-*,*S*D*K*5*,*W*R* *O*3* *H*R*I*A*,*D*R*,*D*r*-*9*0*3</rc_present_address>\n
+    <rc_permanent_address>H*N*-*/*,*J*A*-*,*S*D*K*5*,*W*R* *O*3* *H*R*I*A*,*D*R*,*D*r*-*9*0*3</rc_permanent_address>\n
+    <rc_mobile_no>9*3*4*0*0*</rc_mobile_no>\n
+    <rc_vch_catg>HGV</rc_vch_catg>\n
+    <rc_vh_class_desc>Articulated Vehicle(HGV)</rc_vh_class_desc>\n
+    <rc_chasi_no>MAT503017GAH08909</rc_chasi_no>\n
+    <rc_eng_no>61H63538630</rc_eng_no>\n
+    <rc_maker_desc>TATA MOTORS LTD</rc_maker_desc>\n
+    <rc_maker_model>LPS 3518/32</rc_maker_model>\n
+    <rc_body_type_desc>TRL OB TRAILER (OPEN BODY</rc_body_type_desc>\n
+    <rc_fuel_desc>DIESEL</rc_fuel_desc>\n
+    <rc_color>WHITE</rc_color>\n
+    <rc_norms_desc>BHARAT STAGE IV</rc_norms_desc>\n
+    <rc_fit_upto>23-Nov-2025</rc_fit_upto>\n
+    <rc_np_upto>24-Nov-2024</rc_np_upto>\n
+    <rc_np_issued_by>RTO Durg</rc_np_issued_by>\n
+    <rc_tax_upto>31-05-2024</rc_tax_upto>\n
+    <rc_financer>CHOLAMANDALAM INVESTMENT AND FINANC</rc_financer>\n
+    <rc_insurance_comp>National Insurance Co. Ltd.</rc_insurance_comp>\n
+    <rc_insurance_policy_no>29520531246360000654</rc_insurance_policy_no>\n
+    <rc_insurance_upto>21-May-2025</rc_insurance_upto>\n
+    <rc_manu_month_yr>8/2016</rc_manu_month_yr>\n
+    <rc_unld_wt>12000</rc_unld_wt>\n
+    <rc_gvw>39500</rc_gvw>\n
+    <rc_no_cyl>6</rc_no_cyl>\n
+    <rc_cubic_cap>5883.00</rc_cubic_cap>\n
+    <rc_seat_cap>2</rc_seat_cap>\n
+    <rc_sleeper_cap>0</rc_sleeper_cap>\n
+    <rc_stand_cap>0</rc_stand_cap>\n
+    <rc_wheelbase>3200</rc_wheelbase>\n
+    <rc_registered_at>DURG RTO, Chhattisgarh</rc_registered_at>\n
+    <rc_status_as_on>08-Jun-2024</rc_status_as_on>\n
+    <rc_pucc_upto>19-Nov-2024</rc_pucc_upto>\n
+    <rc_pucc_no>MH03500270008213</rc_pucc_no>\n
+    <rc_status>ACTIVE</rc_status>\n
+    <rc_ncrb_status></rc_ncrb_status>\n
+    <rc_blacklist_status></rc_blacklist_status>\n
+    <rc_permit_no>CG2021-NP-7376A</rc_permit_no>\n
+    <rc_permit_issue_dt>27-Nov-2021</rc_permit_issue_dt>\n
+    <rc_permit_valid_from>27-Nov-2021</rc_permit_valid_from>\n
+    <rc_permit_valid_upto>26-Nov-2026</rc_permit_valid_upto>\n
+    <rc_permit_type>National Permit [MULTI AXLE GOODS VCH(&lt;=50tons)]</rc_permit_type>\n
+    <rc_permit_code>106</rc_permit_code>\n
+    <rc_noc_details></rc_noc_details>\n
+    <rc_vh_class>0</rc_vh_class>\n
+    <rc_fuel_cd>0</rc_fuel_cd>\n
+    <rc_maker_cd>0</rc_maker_cd>\n
+    <rc_norms_cd>0</rc_norms_cd>\n
+    <rc_sale_amt>0.0</rc_sale_amt>\n
+    <rc_deemed_owner_details>\n    
+        <auc_valid_upto></auc_valid_upto>\n
+        <authorization_certificate_number></authorization_certificate_number>\n
+        <dealer_code></dealer_code>\n
+        <dealer_mail></dealer_mail>\n
+        <dealer_mobile></dealer_mobile>\n
+        <dealer_name></dealer_name>\n
+    </rc_deemed_owner_details>\n
+    <rc_vehicle_surrendered_to_dealer>0</rc_vehicle_surrendered_to_dealer>\n
+    <rc_dealer>\n    
+        <dealer_contact_no>0</dealer_contact_no>\n
+        <dealer_district>0</dealer_district>\n
+        <dealer_pincode>0</dealer_pincode>\n
+    </rc_dealer>\n
+    <rc_currentadd_statename>Chhattisgarh</rc_currentadd_statename>\n
+    <rc_currentadd_districtcode>409</rc_currentadd_districtcode>\n
+    <rc_currentadd_pincode>490003</rc_currentadd_pincode>\n
+    <rc_non_use>false</rc_non_use>\n
+    <rc_passenger_tax></rc_passenger_tax>\n
+    <rc_goods_tax></rc_goods_tax>\n
+    <temp_permit>\n    
+        <rc_permit_code></rc_permit_code>\n
+        <rc_permit_issue_dt></rc_permit_issue_dt>\n
+        <rc_permit_no></rc_permit_no>\n
+        <rc_permit_type></rc_permit_type>\n
+        <rc_permit_valid_from></rc_permit_valid_from>\n
+        <rc_permit_valid_upto></rc_permit_valid_upto>\n
+    </temp_permit>\n
+    <rc_qr_url></rc_qr_url>\n
+    <rc_auth_name></rc_auth_name>\n
+    <rc_auth_sign></rc_auth_sign>\n
+    <rc_approval_date></rc_approval_date>\n
+    <rc_hp></rc_hp>\n
+    <rc_mandal_desc></rc_mandal_desc>\n
+    <rc_taluk_cd></rc_taluk_cd>\n
+</VehicleDetails>","responseStatus":"SUCCESS"}],"error":"false","code":"200","message":"Success"}
