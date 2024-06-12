@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Data Extraction</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <table id="table1">
+        <tr>
+            <td><input type="text" value="Item 1"></td>
+            <td>Details 1</td>
+        </tr>
+        <tr>
+            <td><input type="text" value="Item 2"></td>
+            <td>Details 2</td>
+        </tr>
+        <tr>
+            <td><input type="text" value="Item 3"></td>
+            <td>Details 3</td>
+        </tr>
+    </table>
+
+    <table id="table2">
+        <tr>
+            <td>Another Column</td>
+            <td>
+                <select id="dropdownContainer">
+                    <!-- Options will be populated here -->
+                </select>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        $(document).ready(function() {
+            function updateDropdown() {
+                let columnData = [];
+                $('#table1 tr').each(function() {
+                    let firstColumnInputValue = $(this).find('td:first input').val();
+                    columnData.push(firstColumnInputValue);
+                });
+
+                let dropdown = $('#dropdownContainer');
+                dropdown.empty(); // Clear current options
+
+                columnData.forEach(function(item) {
+                    dropdown.append($('<option></option>').text(item));
+                });
+            }
+
+            updateDropdown(); // Initial population of dropdown
+
+            // Listen for changes in the first table inputs
+            $('#table1').on('input', 'input', function() {
+                updateDropdown();
+            });
+        });
+    </script>
+</body>
+</html>

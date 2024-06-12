@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Consignment Enqery</title>
+</head>
+
+<body>
+    <div class="container-fluid mt-4">
+        <h5>Track Your Consignment</h5>
+
+        <form id="consignmentForm">
+            <div class="col-3">
+                <label class="col-form-label" for="">CN No</label>
+                <input class="form-control" type="text" id="vno" name="vno" required>
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-primary mt-3" onclick="trackConsignment()">Track</button>
+            </div>
+
+            <div class="mt-4" id="result"></div>
+        </form>
+    </div>
+
+    <script>
+        function trackConsignment() {
+            var vno = document.getElementById("vno").value;
+
+            // Construct the URL
+            var url = "https://cntrack.lozics.in/Tracking.Ashx";
+
+            // Construct the JSON payload
+            var payload = {
+                "interface": "RestAPI",
+                "method": "GetConsignmentDetail",
+                "parameters": { "VNO": vno },
+                "token": "MLPL"
+            };
+
+            // Make the POST request
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Display the result
+                    console.log(data);
+                    displayConsignmentDetails(data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById("result").innerHTML = "Error occurred. Please try again.";
+                });
+        }
+
+        function displayConsignmentDetails(data) {
+            var resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = ""; // Clear previous results
+
+            // format the data for display
+            var cnmtDetail = JSON.parse(data.Value).cnmtDetail;
+            var movementDetail = JSON.parse(data.Value).movementDetail;
+            var invoiceDetail = JSON.parse(data.Value).Table3;
+            var vehicleHireDetail = JSON.parse(data.Value).Table5;
+            console.log(vehicleHireDetail)
+            
+            // Consignment detail table
+            if(cnmtDetail != 0) {
+                console.log("cnmtDetail : ", cnmtDetail);
+                resultDiv.innerHTML += 
+                `<div class="table-responsive-sm">
+                    <table class='table table-sm'> 
+                        <tbody>
+                            <tr>
+                                <th scope='col'>Consignment No</th> 
+                                <th scope='col'>Date</th>
+                                <th scope='col'>Delivery At</th>
+                                <th scope='col'>MODE</th>
+                                <th scope='col'>Package</th>
+                                <th scope='col'>Weight</th>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td scope='row'>` + cnmtDetail[0].CNNO + `</td>
+                                <td>` + cnmtDetail[0].VDATE + `</td> 
+                                <td>` + cnmtDetail[0].DELIVERYAT + `</td>
+                                <td>` + cnmtDetail[0].MODE + `</td>
+                                <td>` + cnmtDetail[0].PKGS + `</td>
+                                <td>` + cnmtDetail[0].WEIGHT + `</td>
+                            </tr>
+                            <tr>
+                                <td colspan='3' scope='row'> <b> From </b> <br>` + cnmtDetail[0].CONSIGNOR + `<br>` + cnmtDetail[0].FROMSTATION + `</td>
+                                <td colspan='3'> <b> To </b> <br>` + cnmtDetail[0].CONSIGNEE + `<br>` + cnmtDetail[0].TOSTATION + `</td>
+                            </tr>
+                            <tr>
+                                <td colspan='6'><b>Statuts : </b>` + cnmtDetail[0].STATUS + `</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>`;
+            }
+
+
+
+            // Manifest detail table
+            var movementType = "MFF";
+            var movementCount = 0;
+            movementDetail.forEach(function(entry) {
+                if (entry.CNS_VTYPE == movementType) {
+                    movementCount++
+                }
+            });
+            console.log("movementCount : ", movementCount)
+            if (movementCount >= 1) {
+                var tableManifestDetail =`
+                <div class="table-responsive-sm">
+                    <table class='table table-sm'>
+                        <thead>
+                            <tr>
+                                <th scope='col'>Manifest</th>
+                                <th scope='col'>Date</th>
+                                <th scope='col'>From</th>
+                                <th scope='col'>To</th>
+                                <th scope='col'>Vehicle No</th>
+                                <th scope='col'>Status</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>`;
+                        for (var i = 0; i < movementDetail.length; i++) {
+                            if (movementDetail[i].CNS_VTYPE == movementType) {
+                                tableManifestDetail += 
+                                `<tr>
+                                    <td>` + movementDetail[i].CNS_VNO + `</td>
+                                    <td>` + movementDetail[i].VDATE + `</td>
+                                    <td>` + movementDetail[i].FROMSTN + `</td>
+                                    <td>` + movementDetail[i].TOSTN + `</td>
+                                    <td>` + movementDetail[i].VEHICLENO + `</td>
+                                    <td>` + movementDetail[i].STATUS + `</td>
+
+                                </tr>`;
+                            }
+                        } tableManifestDetail +=
+                        `</tbody>
+                    </table>
+                </div>`;
+            }
+            resultDiv.innerHTML += tableManifestDetail;
+ 
+
+            // Unloading detail table
+            var movementType = "ULL";
+            var movementCount = 0;
+            movementDetail.forEach(function(entry) {
+                if (entry.CNS_VTYPE == movementType) {
+                    movementCount++
+                }
+            });
+            console.log("movementCount : ", movementCount)
+            if (movementCount >= 1) {
+                var tableUnloading =`
+                <div class="table-responsive-sm">
+                    <table class='table table-sm'>
+                        <thead>
+                            <tr>
+                                <th scope='col'>Unloading Branch</th>
+                                <th scope='col'>Document Type</th>
+                                <th scope='col'>Unloading No</th>
+                                <th scope='col'>Date</th>
+                                <th scope='col'>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>`;
+                        for (var i = 0; i < movementDetail.length; i++) {
+                            if (movementDetail[i].CNS_VTYPE == movementType) {
+                                tableUnloading += 
+                                `<tr>
+                                    <td>` + movementDetail[i].BRN_NAME + `</td>
+                                    <td>` + movementDetail[i].CNS_VTYPE + `</td>
+                                    <td>` + movementDetail[i].CNS_VNO + `</td>
+                                    <td>` + movementDetail[i].VDATE + `</td>
+                                    <td>` + movementDetail[i].STATUS + `</td>
+
+                                </tr>`;
+                            }
+                        } tableUnloading +=
+                        `</tbody>
+                    </table>
+                </div>`;
+            }
+            resultDiv.innerHTML += tableUnloading;
+
+
+            // vehicle hire detail table
+            if(vehicleHireDetail != 0) {
+                console.log("vehicleHireDetail : ", vehicleHireDetail);
+                var tableVehicleHireDetail = `
+                <div class="table-responsive-sm">
+                    <table class='table table-sm'>
+                        <thead>
+                            <tr>
+                                <th scope='col'>Branch</th>
+                                <th scope='col'>Vehicle Hire</th>
+                                <th scope='col'>Date</th>
+                                <th scope='col'>Source</th>
+                                <th scope='col'>Destination</th>
+                                <th scope='col'>Vehicle No</th>
+                                <th scope='col'>User</th>
+                            </tr>
+                        </thead>
+                        <tbody>`;
+                            for (var i=0; i < vehicleHireDetail.length; i++) {
+                                tableVehicleHireDetail +=
+                                `<tr>
+                                    <td>` + vehicleHireDetail[i].VHM_BRANCHNAME + `</td>
+                                    <td>` + vehicleHireDetail[i].VHM_VNO + `</td>
+                                    <td>` + vehicleHireDetail[i].VHDATE + `</td>
+                                    <td>` + vehicleHireDetail[i].SOURCE + `</td>
+                                    <td>` + vehicleHireDetail[i].DESTINATION + `</td>
+                                    <td>` + vehicleHireDetail[i].VHM_VEHICLENO + `</td>
+                                    <td>` + vehicleHireDetail[i].VHM_ADDUSER + `</td>
+                                </tr>`;
+                            } +
+                        `</tbody>
+                    </table>
+                </div>`;
+                resultDiv.innerHTML += tableVehicleHireDetail;
+            }
+
+           
+
+            var tableInvoiceContent = 
+            `<div class="table-responsive-sm">
+                <table class='table table-sm'>
+                    <thead class='head-light'>
+                        <tr>
+                            <th scope='col'>Invoice No</th>
+                            <th scope='col'>Date</th>
+                            <th scope='col'>Part Name</th>
+                            <th scope='col'>Part No</th>
+                            <th scope='col'>Qty</th>
+                            <th scope='col'>Pkg</th>
+                            <th scope='col'>Weight</th>
+                        </tr>
+                    </thead>
+                    <tbody>`;
+                        for (var i = 0; i < invoiceDetail.length; i++) {
+                            tableInvoiceContent += 
+                            `<tr>
+                                <td>` + invoiceDetail[i].INVOICE + `</td>
+                                <td>` + invoiceDetail[i].INVOICEDATE + `</td>
+                                <td>` + invoiceDetail[i].PARTNAME + `</td>
+                                <td>` + invoiceDetail[i].PARTNO + `</td>
+                                <td>` + invoiceDetail[i].QTY + `</td>
+                                <td>` + invoiceDetail[i].PKGS + `</td>
+                                <td>` + invoiceDetail[i].ACTUAL_WEIGHT + `</td>
+                            </tr>`;
+                        } + 
+                    `</tbody>
+                </table>
+            </div>`;
+            resultDiv.innerHTML += tableInvoiceContent;
+        }
+    </script>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
