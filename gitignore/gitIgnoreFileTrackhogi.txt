@@ -1,1 +1,3 @@
 kya aisa krne se git ignore file track hogi
+
+iska change git par ja rha ha
