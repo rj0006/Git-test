@@ -1,0 +1,1 @@
+kya aisa krne se git ignore file track hogi
